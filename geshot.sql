@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 07, 2017 at 08:05 PM
+-- Generation Time: Jun 07, 2017 at 08:31 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -65,7 +65,7 @@ CREATE TABLE `huespedes` (
   `ID_huesped` int(100) NOT NULL,
   `nombre_huesped` varchar(100) NOT NULL,
   `apellido_huesped` varchar(100) NOT NULL,
-  `DNI` int(100) NOT NULL,
+  `DNI` varchar(100) NOT NULL,
   `nacionalidad` varchar(100) NOT NULL,
   `domicilio` varchar(100) DEFAULT NULL,
   `ocupacion` varchar(100) DEFAULT NULL,

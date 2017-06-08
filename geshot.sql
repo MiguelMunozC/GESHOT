@@ -97,9 +97,9 @@ CREATE TABLE `registro` (
 
 CREATE TABLE `usuarios` (
   `ID_usuario` int(100) NOT NULL,
-  `nombre_usuario` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `contrasenia` varchar(100) NOT NULL
+  `pass` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

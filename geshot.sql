@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 07, 2017 at 07:50 PM
+-- Generation Time: Jun 07, 2017 at 08:05 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -67,8 +67,8 @@ CREATE TABLE `huespedes` (
   `apellido_huesped` varchar(100) NOT NULL,
   `DNI` int(100) NOT NULL,
   `nacionalidad` varchar(100) NOT NULL,
-  `domicilio` varchar(100) NOT NULL,
-  `ocupacion` varchar(100) NOT NULL,
+  `domicilio` varchar(100) DEFAULT NULL,
+  `ocupacion` varchar(100) DEFAULT NULL,
   `fecha_nacimiento` date NOT NULL,
   `email_huesped` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -88,6 +88,26 @@ CREATE TABLE `registro` (
   `costo_total` int(255) NOT NULL DEFAULT '0',
   `ID_habitacion` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `ID_usuario` int(100) NOT NULL,
+  `nombre_usuario` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contrasenia` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `contrasenia`) VALUES
+(1, 'admin', 'admin@geshot.com', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -121,6 +141,12 @@ ALTER TABLE `registro`
   ADD KEY `fk_ID_habitacion` (`ID_habitacion`);
 
 --
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`ID_usuario`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -144,6 +170,11 @@ ALTER TABLE `huespedes`
 --
 ALTER TABLE `registro`
   MODIFY `ID_registro` int(100) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --

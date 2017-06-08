@@ -13,52 +13,73 @@ include "conexion.php";
         <meta charset="UTF-8">
         <title></title>
     </head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
     <body>
-        <form action="registrarHuesped.php" method="post">
-            <h2>Registro Huesped</h2>
+        <form action="registrarHuesped.php" method="post" class="col s12">
+            <h2>Formulario Huesped</h2>
 
-            <table>
-                <tr>
-                    <th>Nombre:</th>
-                    <th> <input type="text" name="nombreHuesped" value="" required /></th>
-                </tr>
-                <tr>
-                    <th>Apellido: </th>
-                    <td><input type="text" name="apellidoHuesped" value="" required /></td>
-                </tr>
-                <tr>
-                    <th>Nacionalidad</th>
-                    <td><input type="text" name="nacionalidad" value="" required/></td>
-                </tr>
-                <tr>
-                    <th>Fecha Nacimiento: </th>
-                    <td><input type="date" name="fechaNacimiento" required/></td>
-                </tr>
-                <tr>
-                    <th>DNI: </th>
-                    <td><input type="text" name="dni" value="" required/></td>
-                </tr>
-                <tr>
-                    <th>Domicilio: </th>
-                    <td><input type="text" name="domicilio" value="" /></td>
-                </tr>
-                <tr>
-                    <th>Ocupacion: </th>
-                    <td><input type="text" name="ocupacion" value="" /></td>
-                </tr>
-                <tr>
-                    <th>Email: </th>
-                    <td><input type="text" name="email" value="" required /></td>
-                </tr>
 
-            </table>
-            <BR>
-            <input type="submit" value="Submit" name="Submit" />
-            <input type="reset" value="Reset" name="Reset" />
+            <div class="row" >
+                <div class="input-field col s3">
+                    <input value="" name= "nombreHuesped" id="nombreHuesped" type="text" class="validate" required>
+                    <label class="active"  for="nombreHuesped"  >Nombre</label> 
+
+                </div>
+
+                <div class="input-field col s3">
+                    <input value="" name= "apellidoHuesped" id="apellidoHuesped" type="text" class="validate" required>
+                    <label class="active" for="apellidoHuesped">Apellido</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="" name="nacionalidad" id="nacionalidad" type="text" class="validate" required>
+                    <label class="active" for="nacionalidad">Nacionalidad</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="" name="fechaNacimiento" id="fechaNacimiento" type="text" class="validate" required>
+                    <label class="active" for="fechaNacimiento">Fecha Nacimiento</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="" name="dni" id="dni" type="text" class="validate" required>
+                    <label class="active" for="dni">DNI</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="" name="domicilio" id="domicilio" type="text" class="validate" >
+                    <label class="active" for="domicilio">Domicilio</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input value="" name="ocupacion" id="ocupacion" type="text" class="validate" >
+                    <label class="active" for="ocupacion">Ocupacion</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="email" id="email" type="email" class="validate">
+                    <label class="active" for="email" data-error="wrong" data-success="right">Email</label>
+                </div>
+            </div>
+
+            <button class="btn waves-effect waves-light btn" type="reset" name="action">Reset</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                <i class="material-icons right"></i>
+            </button>
+
+
         </form>
 
-<?php
+        <?php
 // put your code here
-?>
+        ?>
     </body>
 </html>

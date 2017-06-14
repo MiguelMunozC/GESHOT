@@ -6,16 +6,14 @@ if (!empty($_POST)) {
     $loginPassword = ($_POST["password"]);
 
     $consulta = "SELECT ID_usuario FROM `usuarios` WHERE `username`=\"$loginNombre\" AND `pass`=\"$loginPassword\"";
-    echo 'query ' . $consulta;
-    //$query = $con->query($sql);
     $result = $con->query($consulta);
     if ($result->num_rows > 0) {
-        header('Location: formularioHuesped.php');
+        echo "http://localhost/GESHOT/php/formularioHuesped.php";
     } else {
-         header('Location: \Login\index.php');
+        echo "-1";
     }
 } else {
-    print "<script>alert(\"error al loggear.\");</script>";
+    echo "-1";
 }
 ?>
 

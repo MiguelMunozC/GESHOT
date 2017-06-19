@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2017 at 07:24 PM
+-- Generation Time: Jun 19, 2017 at 04:01 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -55,6 +55,21 @@ CREATE TABLE `habitaciones` (
   `ID_estado_habitacion` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `habitaciones`
+--
+
+INSERT INTO `habitaciones` (`ID_habitacion`, `numero_pieza`, `piso_habitacion`, `ID_estado_habitacion`) VALUES
+(1, 101, 1, 1),
+(2, 102, 1, 2),
+(3, 103, 1, 1),
+(4, 201, 2, 3),
+(5, 202, 2, 4),
+(6, 203, 2, 1),
+(7, 301, 3, 2),
+(8, 302, 3, 3),
+(9, 303, 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -65,12 +80,13 @@ CREATE TABLE `huespedes` (
   `ID_huesped` int(100) NOT NULL,
   `nombre_huesped` varchar(100) NOT NULL,
   `apellido_huesped` varchar(100) NOT NULL,
-  `DNI` varchar(100) NOT NULL,
+  `DNI` int(100) NOT NULL,
   `nacionalidad` varchar(100) NOT NULL,
   `domicilio` varchar(100) DEFAULT NULL,
   `ocupacion` varchar(100) DEFAULT NULL,
   `fecha_nacimiento` date NOT NULL,
-  `email_huesped` varchar(100) NOT NULL
+  `email_huesped` varchar(100) NOT NULL,
+  `ID_habitacion` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -92,6 +108,25 @@ CREATE TABLE `registro` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `ID_rol` int(100) NOT NULL,
+  `nombre_rol` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`ID_rol`, `nombre_rol`) VALUES
+(1, 'Admin'),
+(2, 'Recepcionista');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -99,15 +134,129 @@ CREATE TABLE `usuarios` (
   `ID_usuario` int(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `pass` varchar(100) NOT NULL
+  `pass` varchar(100) NOT NULL,
+  `ID_rol` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_usuario`, `username`, `email`, `pass`) VALUES
-(1, 'admin', 'admin@geshot.com', 'admin');
+INSERT INTO `usuarios` (`ID_usuario`, `username`, `email`, `pass`, `ID_rol`) VALUES
+(3, 'Admin', 'admin@geshot.com', 'admin', 1),
+(4, 'Fernando', 'fernando.riffo2016@twk.cl', '1234', 2),
+(5, 'Miguel', 'miguel.munoz2016@twk.cl', '1234', 2),
+(6, 'Diego', 'diego.hernandez2016@twk.cl', '1234', 2),
+(7, 'Rodrigo', 'rodrigo.molina2016@twk.cl', '1234', 2),
+(8, 'Gustavo', 'gustavo.perez2016@twk.cl', '1234', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `estado_habitacion`
+--
+ALTER TABLE `estado_habitacion`
+  ADD PRIMARY KEY (`ID_estado_habitacion`);
+
+--
+-- Indexes for table `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  ADD PRIMARY KEY (`ID_habitacion`),
+  ADD KEY `fk_ID_estado_habitacion` (`ID_estado_habitacion`);
+
+--
+-- Indexes for table `huespedes`
+--
+ALTER TABLE `huespedes`
+  ADD PRIMARY KEY (`ID_huesped`),
+  ADD KEY `fk_ID_habitacion2` (`ID_habitacion`);
+
+--
+-- Indexes for table `registro`
+--
+ALTER TABLE `registro`
+  ADD PRIMARY KEY (`ID_registro`),
+  ADD KEY `fk_ID_huesped` (`ID_huesped`),
+  ADD KEY `fk_ID_habitacion` (`ID_habitacion`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ID_rol`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`ID_usuario`),
+  ADD KEY `fk_ID_rol` (`ID_rol`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `estado_habitacion`
+--
+ALTER TABLE `estado_habitacion`
+  MODIFY `ID_estado_habitacion` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  MODIFY `ID_habitacion` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `huespedes`
+--
+ALTER TABLE `huespedes`
+  MODIFY `ID_huesped` int(100) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `registro`
+--
+ALTER TABLE `registro`
+  MODIFY `ID_registro` int(100) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `ID_rol` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `ID_usuario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  ADD CONSTRAINT `fk_ID_estado_habitacion` FOREIGN KEY (`ID_estado_habitacion`) REFERENCES `estado_habitacion` (`ID_estado_habitacion`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `huespedes`
+--
+ALTER TABLE `huespedes`
+  ADD CONSTRAINT `fk_ID_habitacion2` FOREIGN KEY (`ID_habitacion`) REFERENCES `habitaciones` (`ID_habitacion`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `registro`
+--
+ALTER TABLE `registro`
+  ADD CONSTRAINT `fk_ID_habitacion` FOREIGN KEY (`ID_habitacion`) REFERENCES `habitaciones` (`ID_habitacion`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_ID_huesped` FOREIGN KEY (`ID_huesped`) REFERENCES `huespedes` (`ID_huesped`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_ID_rol` FOREIGN KEY (`ID_rol`) REFERENCES `roles` (`ID_rol`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

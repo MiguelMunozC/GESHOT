@@ -2,6 +2,7 @@
 session_start();
 include "php/conexion.php";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -41,7 +42,7 @@ include "php/conexion.php";
                     <input id="passwordInput" name="password" type="password" class="validate">
                     <label id="passwordLabel" for="password"><i class="zmdi zmdi-lock"></i> Contraseña</label>
                 </div>
-                <button id="acceder" type="button" value="acceder" class="waves-effect waves-teal btn-flat">Ingresar <i class="zmdi zmdi-mail-send"></i></button>
+                <button id="acceder" type="submit" value="acceder" class="waves-effect waves-teal btn-flat">Ingresar <i class="zmdi zmdi-mail-send"></i></button>
             </form>
         </div>
 

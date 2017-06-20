@@ -33,7 +33,7 @@ $(document).ready(function(){
             closeOnConfirm: false,
             cancelButtonText: "Cancel"
         }, function(){   
-            window.location='index.html'; 
+            window.location='index.php'; 
         });
     }); 
     $('.btn-Search').on('click', function(e){

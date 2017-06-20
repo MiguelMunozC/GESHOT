@@ -8,7 +8,7 @@ if (!empty($_POST)) {
     $consulta = "SELECT ID_usuario FROM `usuarios` WHERE `username`=\"$loginNombre\" AND `pass`=\"$loginPassword\"";
     $result = $con->query($consulta);
     if ($result->num_rows > 0) {
-        echo "http://localhost/GESHOT/php/formularioHuesped.php";
+        echo "http://localhost/GESHOT/home.php";
     } else {
         echo "-1";
     }

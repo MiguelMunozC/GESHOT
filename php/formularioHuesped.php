@@ -114,11 +114,17 @@ include "conexion.php";
                     <p class="center-align"> 
                         <button class="btn waves-effect waves-light" type="reset" name="agregar" id="agregar" >Agregar
                             <i class="material-icons right">replay</i></button>
-                        <button class="btn waves-effect waves-light" type="submit" name="enivar" id="enivar" >Agregar y Finalizar
+                        <button class="btn waves-effect waves-light" type="submit" name="enivar" id="enivar" >Finalizar
                             <i class="material-icons right">send</i>
                         </button>
-                    </p>
 
+                    </p>
+                    <p class="center-align">
+                       
+                        <button class="btn waves-effect waves-light" type="button" id="boton" name="boton" onclick="location.href = '../home.php'">Cancelar
+                            <i class="material-icons right">clear</i>
+                        </button>
+                    </p>
 
 
                 </form>
@@ -141,11 +147,11 @@ include "conexion.php";
                     startDate: '-3d'
                 });
 
-                
-                 $("#agregar").click(function () {
+
+                $("#agregar").click(function () {
                     // se utiliza para agregar mas huespedes
                     if (validacion2()) {
-                       
+
                         var url = "registrarHuesped.php";
 
                         $.ajax({
@@ -162,7 +168,8 @@ include "conexion.php";
 
 
 
-            });
+            }
+            );
 
         </script>
 

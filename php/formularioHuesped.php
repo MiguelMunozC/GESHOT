@@ -6,16 +6,20 @@ and open the template in the editor.
 -->
 
 <?php
+session_start();
 include "conexion.php";
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">     
     </head>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
-    <body>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../js/materialize.min.js" type="text/javascript"></script>
+    <body >
         <h2 class="center-align">Formulario Huesped</h2>
 
 
@@ -24,9 +28,9 @@ include "conexion.php";
                 <form action="registrarHuesped.php" method="post"  id="form">
 
                     <div class="row" >
- 
+
                         <div class="input-field col s6">
-                             <i class="material-icons prefix">perm_identity</i>
+                            <i class="material-icons prefix">perm_identity</i>
                             <input  value="" name= "nombreHuesped" id="nombreH" type="text" class="validate"  required>
                             <label class="active"  for="nombreHuesped" >Nombre</label> 
                         </div>
@@ -35,46 +39,6 @@ include "conexion.php";
                             <i class="material-icons prefix">person_pin</i>
                             <input value="" name= "apellidoHuesped" id="apellidoHuesped" type="text" class="validate" required>
                             <label class="active" for="apellidoHuesped">Apellido</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field">
-                            <i class="material-icons prefix">portrait</i>
-                            <input value="" name="nacionalidad" id="nacionalidad" type="text" class="validate" required>
-                            <label class="active" for="nacionalidad">Nacionalidad</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field">
-                            <i class="material-icons prefix">date_range</i>
-                            <input value="" name="fechaNacimiento" id="fechaNacimiento" type="text" class="validate" required>
-                            <label class="active" for="fechaNacimiento">Fecha Nacimiento</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field">
-                            <i class="material-icons prefix">account_box</i>
-                            <input value="" name="dni" id="dni" type="text" class="validate" required >
-                            <label  class="active" for="dni">DNI</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field">
-                            <i class="material-icons prefix">home</i>
-                            <input value="" name="domicilio" id="domicilio" type="text" class="validate" >
-                            <label class="active" for="domicilio">Domicilio</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field">
-                            <i class="material-icons prefix">work</i>
-                            <input value="" name="ocupacion" id="ocupacion" type="text" class="validate" >
-                            <label class="active" for="ocupacion">Ocupacion</label>
                         </div>
                     </div>
 
@@ -86,10 +50,65 @@ include "conexion.php";
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">portrait</i>
+                            <input value="" name="nacionalidad" id="nacionalidad" type="text" class="validate" required>
+                            <label class="active" for="nacionalidad">Nacionalidad</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col s12">               
+                            <label>Materialize DatePicker</label>              
+                            <input name="fechaNacimiento" id="fechaNacimiento" type="date" class="datepicker" required>    
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_box</i>
+                            <input value="" name="dni" id="dni" type="text" class="validate" required >
+                            <label  class="active" for="dni">DNI</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">home</i>
+                            <input value="" name="domicilio" id="domicilio" type="text" class="validate" >
+                            <label class="active" for="domicilio">Domicilio</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field">
+                            <i class="material-icons prefix">work</i>
+                            <input value="" name="ocupacion" id="ocupacion" type="text" class="validate" >
+                            <label class="active" for="ocupacion">Ocupacion</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <select name="nHabitacion" id="nHabitacion">
+                            <option value="0">Selecciónar Habitacion:</option>
+                            <?php
+                            $query = $con->query("SELECT * FROM habitaciones WHERE ID_estado_habitacion = 1");
+
+                            while ($valores = mysqli_fetch_array($query)) {
+
+                                echo '<option value="' . $valores[ID_habitacion] . '">' . $valores[numero_pieza] . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+
                     <p class="center-align"> 
                         <button class="btn waves-effect waves-light btn" type="reset" name="action" id="agregar" >Agregar
-                        <i class="material-icons right">replay</i></button>
-                        <button class="btn waves-effect waves-light" type="submit" name="action" >Agregar y Finalizar
+                            <i class="material-icons right">replay</i></button>
+                        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit" >Agregar y Finalizar
                             <i class="material-icons right">send</i>
                         </button>
                     </p>
@@ -100,12 +119,18 @@ include "conexion.php";
             </article>
 
         </div>
-        <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+
         <script type="text/javascript">
 
-            $(function () {
 
-                $("#agregar").click(function () {
+            $(document).ready(function () {
+
+                $('select').material_select();  //Se utiliza para lista de habitaciones desplegables
+
+                $('.datepicker').pickadate({}); // se utiliza para tipo date
+
+                $("#agregar").click(function () {  // se utiliza para agregar mas huespedes
                     var url = "registrarHuesped.php";
 
                     $.ajax({
@@ -118,6 +143,8 @@ include "conexion.php";
                     });
 
                 });
+
+              
             });
 
         </script>

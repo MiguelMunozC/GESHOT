@@ -19,7 +19,7 @@ include "conexion.php";
     <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../js/materialize.min.js" type="text/javascript"></script>
-    <body >
+    <body class="container">
         <h2 class="center-align">Formulario Huesped</h2>
 
 
@@ -45,7 +45,7 @@ include "conexion.php";
                     <div class="row">
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input name="email" id="email" type="email" class="validate" value="" >
+                            <input name="email" id="email" type="email" class="validate" value="" required>
                             <label class="active" for="email" data-error="wrong" data-success="right">Email</label>
                         </div>
                     </div>
@@ -60,22 +60,12 @@ include "conexion.php";
 
 
 
-                    <label>Fecha de nacimiento</label>
+                    
                     <div class="row">
-
-                        <div class="input-field col s3"><i class="material-icons prefix">date_range</i>
-
-                            <input value="" id="dia" type="number" min="1" max="31" class="validate" maxlength="2" name="dia">
-                            <label class="active" for="dia">Dia</label>
-                        </div>
-
-                        <div class="input-field col s3">
-                            <input value="" id="mes" type="number" min="01" max="12" class="validate" name="mes" maxlength="2">
-                            <label class="active" for="mes">Mes</label>
-                        </div>
-                        <div class="input-field col s3">
-                            <input value="" id="anio" type="number" min="1917" max="2017" class="validate" name="anio" maxlength="4">
-                            <label class="active" for="anio">Año</label>
+                            <label>Fecha de nacimiento</label>
+                        <div class=" col s12">
+                            
+                            <input type="date" class="datepicker" name="fechaNacimiento" id="fechaNacimiento" required>
                         </div>
                     </div>
 
@@ -107,7 +97,7 @@ include "conexion.php";
                         <i class="material-icons prefix">hotel</i><label>Habitacion</label>
                         <select name="nHabitacion" id="nHabitacion" >
 
-                            <option value="0">Selecciónar Habitacion:</option>
+                            <option value="" disabled selected>Selecciónar Habitacion:</option>
                             <?php
                             $query = $con->query("SELECT * FROM habitaciones WHERE ID_estado_habitacion = 1");
 
@@ -140,30 +130,21 @@ include "conexion.php";
 
 
             $(document).ready(function () {
-                dia.oninput = function () { // maximo de longitud input dia es 2
-                    if (this.value.length > 2) {
-                        this.value = this.value.slice(0, 2);
-                    }
-                }
-                mes.oninput = function () {     // maximo de longitud input mes es 2
-                    if (this.value.length > 2) { 
-                        this.value = this.value.slice(0, 2);
-                    }
-                }
-                anio.oninput = function () {    // maximo de longitud input año es 4
-                    if (this.value.length > 4) {
-                        this.value = this.value.slice(0, 4);
-                    }
-                }
+                
 
                 Materialize.updateTextFields();
 
                 $('select').material_select();  //Se utiliza para lista de habitaciones desplegables
 
-                $('.datepicker').pickadate({}); // se utiliza para tipo date
-
-                $("#agregar").click(function () {  // se utiliza para agregar mas huespedes
+                
+                $('.datepicker').pickadate({
+                    format: 'yyyy/mm/dd',
+                    startDate: '-3d'
+                });
+                $("#agregar").click(function () {// se utiliza para agregar mas huespedes
                     var url = "registrarHuesped.php";
+                    
+                  
 
                     $.ajax({
                         type: "POST",

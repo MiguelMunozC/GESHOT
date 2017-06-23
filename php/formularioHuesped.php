@@ -59,10 +59,23 @@ include "conexion.php";
                     </div>
 
 
+
+                    <label>Fecha de nacimiento</label>
                     <div class="row">
-                        <div class="col s12">               
-                            <label>Materialize DatePicker</label>              
-                            <input name="fechaNacimiento" id="fechaNacimiento" type="date" class="datepicker" required>    
+
+                        <div class="input-field col s3"><i class="material-icons prefix">date_range</i>
+
+                            <input value="" id="dia" type="number" min="1" max="31" class="validate" maxlength="2" name="dia">
+                            <label class="active" for="dia">Dia</label>
+                        </div>
+
+                        <div class="input-field col s3">
+                            <input value="" id="mes" type="number" min="01" max="12" class="validate" name="mes" maxlength="2">
+                            <label class="active" for="mes">Mes</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input value="" id="anio" type="number" min="1917" max="2017" class="validate" name="anio" maxlength="4">
+                            <label class="active" for="anio">Año</label>
                         </div>
                     </div>
 
@@ -91,7 +104,9 @@ include "conexion.php";
                     </div>
 
                     <div class="row">
-                        <select name="nHabitacion" id="nHabitacion">
+                        <i class="material-icons prefix">hotel</i><label>Habitacion</label>
+                        <select name="nHabitacion" id="nHabitacion" >
+
                             <option value="0">Selecciónar Habitacion:</option>
                             <?php
                             $query = $con->query("SELECT * FROM habitaciones WHERE ID_estado_habitacion = 1");
@@ -125,6 +140,23 @@ include "conexion.php";
 
 
             $(document).ready(function () {
+                dia.oninput = function () { // maximo de longitud input dia es 2
+                    if (this.value.length > 2) {
+                        this.value = this.value.slice(0, 2);
+                    }
+                }
+                mes.oninput = function () {     // maximo de longitud input mes es 2
+                    if (this.value.length > 2) { 
+                        this.value = this.value.slice(0, 2);
+                    }
+                }
+                anio.oninput = function () {    // maximo de longitud input año es 4
+                    if (this.value.length > 4) {
+                        this.value = this.value.slice(0, 4);
+                    }
+                }
+
+                Materialize.updateTextFields();
 
                 $('select').material_select();  //Se utiliza para lista de habitaciones desplegables
 
@@ -144,7 +176,7 @@ include "conexion.php";
 
                 });
 
-              
+
             });
 
         </script>

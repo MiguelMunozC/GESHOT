@@ -19,19 +19,20 @@ include "conexion.php";
     <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../js/materialize.min.js" type="text/javascript"></script>
+    <script src="../js/form.js" type="text/javascript"></script>
     <body class="container">
         <h2 class="center-align">Formulario Huesped</h2>
 
 
         <div class="row">
             <article class="col s6 offset-s3">
-                <form action="registrarHuesped.php" method="post"  id="form">
+                <form action="registrarHuesped.php" method="post"  id="form" onreset="return validacion()">
 
                     <div class="row" >
 
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
-                            <input  value="" name= "nombreHuesped" id="nombreH" type="text" class="validate"  required>
+                            <input  value="" name= "nombreHuesped" id="nombreHuesped" type="text" class="validate"  required>
                             <label class="active"  for="nombreHuesped" >Nombre</label> 
                         </div>
 
@@ -60,11 +61,11 @@ include "conexion.php";
 
 
 
-                    
+
                     <div class="row">
-                            <label>Fecha de nacimiento</label>
+                        <label>Fecha de nacimiento</label>
                         <div class=" col s12">
-                            
+
                             <input type="date" class="datepicker" name="fechaNacimiento" id="fechaNacimiento" required>
                         </div>
                     </div>
@@ -111,9 +112,9 @@ include "conexion.php";
 
 
                     <p class="center-align"> 
-                        <button class="btn waves-effect waves-light btn" type="reset" name="action" id="agregar" >Agregar
+                        <button class="btn waves-effect waves-light" type="reset" name="agregar" id="agregar" >Agregar
                             <i class="material-icons right">replay</i></button>
-                        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit" >Agregar y Finalizar
+                        <button class="btn waves-effect waves-light" type="submit" name="enivar" id="enivar" >Agregar y Finalizar
                             <i class="material-icons right">send</i>
                         </button>
                     </p>
@@ -130,32 +131,35 @@ include "conexion.php";
 
 
             $(document).ready(function () {
-                
-
                 Materialize.updateTextFields();
 
                 $('select').material_select();  //Se utiliza para lista de habitaciones desplegables
 
-                
+
                 $('.datepicker').pickadate({
                     format: 'yyyy/mm/dd',
                     startDate: '-3d'
                 });
-                $("#agregar").click(function () {// se utiliza para agregar mas huespedes
-                    var url = "registrarHuesped.php";
-                    
-                  
 
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: $("form").serialize(),
-                        success: function () {
-                            alert("Agregado Exitosamente");
-                        }
-                    });
+                
+                 $("#agregar").click(function () {
+                    // se utiliza para agregar mas huespedes
+                    if (validacion2()) {
+                       
+                        var url = "registrarHuesped.php";
 
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: $("form").serialize(),
+                            success: function () {
+                                alert("Agregado Exitosamente");
+
+                            }
+                        });
+                    }
                 });
+
 
 
             });

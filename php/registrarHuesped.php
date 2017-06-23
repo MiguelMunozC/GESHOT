@@ -12,7 +12,7 @@ if (!empty($_POST)) {
             
             if ($query != null) {
                 print "<script>alert(\"Agregado exitosamente.\");</script>";
-                header("location: ../home.php");
+                header ("Location: ../home.php");
             } else {
                 print "<script>alert(\"No se pudo agregar.\");</script>";
             }

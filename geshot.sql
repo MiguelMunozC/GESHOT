@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2017 at 04:07 PM
+-- Generation Time: Jul 13, 2017 at 05:19 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -52,23 +52,24 @@ CREATE TABLE `habitaciones` (
   `ID_habitacion` int(100) NOT NULL,
   `numero_pieza` int(100) NOT NULL,
   `piso_habitacion` int(100) NOT NULL,
-  `ID_estado_habitacion` int(100) NOT NULL
+  `ID_estado_habitacion` int(100) NOT NULL,
+  `precio_dia` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `habitaciones`
 --
 
-INSERT INTO `habitaciones` (`ID_habitacion`, `numero_pieza`, `piso_habitacion`, `ID_estado_habitacion`) VALUES
-(1, 101, 1, 1),
-(2, 102, 1, 2),
-(3, 103, 1, 1),
-(4, 201, 2, 3),
-(5, 202, 2, 4),
-(6, 203, 2, 1),
-(7, 301, 3, 2),
-(8, 302, 3, 3),
-(9, 303, 3, 1);
+INSERT INTO `habitaciones` (`ID_habitacion`, `numero_pieza`, `piso_habitacion`, `ID_estado_habitacion`, `precio_dia`) VALUES
+(1, 101, 1, 1, 20000),
+(2, 102, 1, 2, 20000),
+(3, 103, 1, 1, 20000),
+(4, 201, 2, 3, 20000),
+(5, 202, 2, 4, 20000),
+(6, 203, 2, 1, 20000),
+(7, 301, 3, 2, 20000),
+(8, 302, 3, 3, 20000),
+(9, 303, 3, 1, 20000);
 
 -- --------------------------------------------------------
 
@@ -89,6 +90,15 @@ CREATE TABLE `huespedes` (
   `ID_habitacion` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `huespedes`
+--
+
+INSERT INTO `huespedes` (`ID_huesped`, `nombre_huesped`, `apellido_huesped`, `DNI`, `nacionalidad`, `domicilio`, `ocupacion`, `fecha_nacimiento`, `email_huesped`, `ID_habitacion`) VALUES
+(1, 'Pedro', 'Perez', 123, 'Chileno', NULL, NULL, '1995-04-23', 'asda@asdas.asd', 3),
+(2, 'Juan', 'Junoasd', 12345, 'Chileno', NULL, NULL, '1997-12-02', 'asda2@asdas.asd', 2),
+(3, 'Diego', 'Paz', 123666, 'Chileno', NULL, NULL, '1995-04-12', 'asda3@asdas.asd', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +110,7 @@ CREATE TABLE `registro` (
   `ID_huesped` int(100) NOT NULL,
   `apellido_huesped` varchar(100) NOT NULL,
   `checkin` date NOT NULL,
-  `checkout` date NOT NULL,
+  `checkout` date DEFAULT NULL,
   `costo_total` int(255) NOT NULL DEFAULT '0',
   `ID_habitacion` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -213,7 +223,7 @@ ALTER TABLE `habitaciones`
 -- AUTO_INCREMENT for table `huespedes`
 --
 ALTER TABLE `huespedes`
-  MODIFY `ID_huesped` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_huesped` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `registro`
 --

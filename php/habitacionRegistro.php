@@ -21,22 +21,21 @@ include 'conexion.php';
         <div align="center">
 
             <div class="row">
-                <i class="material-icons prefix">hotel</i><label>Habitacion</label>
+                <i class="material-icons prefix">hotel</i><label>HUESPED</label>
                 <select name="nHabitacion" id="nHabitacion" >
 
-                    <option value="" disabled selected>Selecciónar Habitacion:</option>
+                    <option value="" disabled selected> Selecciónar HUESPED: </option>
                     <?php
                     include '../metodos/constantes.php';
 
 
-                    $habilitada = 1;
+                 
                     $stmt = mysqli_prepare($con, QUERY_HUESPED_HABITACION);
-                    mysqli_stmt_bind_param($stmt, "i", $habilitada);
-                    mysqli_stmt_bind_result($stmt, $id, $nombre);
+                    mysqli_stmt_bind_result($stmt, $id_huesped, $nombre_huesped,$apellido_huesped);
                     mysqli_stmt_execute($stmt);
                     while (mysqli_stmt_fetch($stmt)) {
 
-                        echo '<option value="' . $id_ . '">' . $nombre . '</option>';
+                        echo '<option value="' . $id_huesped . '">' . $nombre_huesped ." ". $apellido_huesped . '</option>';
                     }
                     ?>
                 </select>

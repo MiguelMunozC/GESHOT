@@ -26,6 +26,8 @@ include 'conexion.php';
         <!-- MaterialDark CSS -->
         <link rel="stylesheet" href="css/style.css">
 
+        <link rel="stylesheet" href="css/estilos.css">
+
         <!--Molina-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="js/form.js" type="text/javascript"></script>

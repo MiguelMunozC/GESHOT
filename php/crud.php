@@ -1,14 +1,11 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Modificador</title>
-</head>
-<link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <?php
 include 'conexion.php';
 ?>
 
+
+
+<div class = "container">
 
  <div class="row">
             <article class="col s6 offset-s3">
@@ -33,9 +30,5 @@ include 'conexion.php';
  </table>
 -- configuro el espacio de la pagina  
 
- </div
-<body>
-
-
-</body>
-</html>
+ </div>
+</div>

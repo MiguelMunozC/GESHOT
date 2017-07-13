@@ -94,13 +94,13 @@ include "conexion.php";
                         </div>
                     </div>
 
-                    <div class="row">
+        <!--       <div class="row">
                         <i class="material-icons prefix">hotel</i><label>Habitacion</label>
                         <select name="nHabitacion" id="nHabitacion" >
 
                             <option value="" disabled selected>Selecciónar Habitacion:</option>
                             <?php
-                           
+                           /**
                             include '../metodos/constantes.php';
                           
                             
@@ -113,11 +113,11 @@ include "conexion.php";
 
                                 echo '<option value="' . $id . '">' . $nombre. '</option>';
                             }
-                              
+                              **/
                             ?>
                         </select>
                     </div>
-
+-->
 
                     <p class="center-align"> 
                         <button class="btn waves-effect waves-light" type="reset" name="agregar" id="agregar" >Agregar

@@ -5,7 +5,7 @@ function validacion() {
     nacionalidad = document.getElementById("nacionalidad").value;
     date = document.getElementById("fechaNacimiento").value;
     dni = document.getElementById("dni").value;
-    indice = document.getElementById("nHabitacion").selectedIndex;
+  
     if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
         alert("nombre esta en blanco");
         return false;
@@ -30,12 +30,9 @@ function validacion() {
                             alert("DNI esta en blanco");
                             return false;
                         } else {
-                            if (indice == null || indice == 0) {
-                                alert("Seleccione una habitacion");
-                                return false;
-                            } else {
-                                return true;
-                            }
+
+                            return true;
+
                         }
                     }
                 }
@@ -52,7 +49,7 @@ function validacion2() {
     nacionalidad = document.getElementById("nacionalidad").value;
     date = document.getElementById("fechaNacimiento").value;
     dni = document.getElementById("dni").value;
-    indice = document.getElementById("nHabitacion").selectedIndex;
+
     if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
 
         return false;
@@ -77,12 +74,9 @@ function validacion2() {
 
                             return false;
                         } else {
-                            if (indice == null || indice == 0) {
 
-                                return false;
-                            } else {
-                                return true;
-                            }
+                            return true;
+
                         }
                     }
                 }

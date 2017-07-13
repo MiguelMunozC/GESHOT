@@ -36,7 +36,7 @@ include 'conexion.php';
                     mysqli_stmt_execute($stmt);
                     while (mysqli_stmt_fetch($stmt)) {
 
-                        echo '<option value="' . $id_HUESPED . '">' . $nombre . '</option>';
+                        echo '<option value="' . $id_ . '">' . $nombre . '</option>';
                     }
                     ?>
                 </select>

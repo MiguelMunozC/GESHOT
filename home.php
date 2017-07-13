@@ -25,6 +25,11 @@ include 'conexion.php';
 
         <!-- MaterialDark CSS -->
         <link rel="stylesheet" href="css/style.css">
+
+        <!--Molina-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="js/form.js" type="text/javascript"></script>
+
     </head>
     <body>
         <!-- Nav Lateral -->
@@ -36,24 +41,24 @@ include 'conexion.php';
                 </header>
                 <figure class="full-width NavLateral-logo">
                     <img src="assets/img/hotel.jpg" alt="material-logo" class="responsive-img center-box">
-                </figure> 
+                </figure>
                 <div class="NavLateral-Nav">
                     <ul class="full-width">
                         <li>
-                            <a href="php/formularioHuesped.php" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Ingreso Huesped</a>
+                            <a id="RegistroHuesped" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Ingreso Huesped</a>
                         </li>
                         <li class="NavLateralDivider"></li>
                         <li>
                             <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="zmdi zmdi-language-css3 zmdi-hc-fw"></i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Registro Habitación</a>
                             <ul class="full-width">
-                                <li><a href="typography-shadow.html" class="waves-effect waves-light">Check In</a></li>
+                                <li><a id="checkin" href="#" class="waves-effect waves-light">Check In</a></li>
                                 <li class="NavLateralDivider"></li>
-                                <li><a href="table.html" class="waves-effect waves-light">Check Out</a></li>
+                                <li><a id="checkout" href="#" class="waves-effect waves-light">Check Out</a></li>
                             </ul>
                         </li>
                     </ul>
-                </div>  
-            </div>  
+                </div>
+            </div>
         </section>
 
         <!-- Page content -->
@@ -64,44 +69,17 @@ include 'conexion.php';
                     <li><figure><img src="assets/img/user.png" alt="UserImage"></figure></li>
                     <li style="padding:0 5px;">Recepcionista Name</li>
                     <li><a href="#" class="tooltipped waves-effect waves-light btn-ExitSystem" data-position="bottom" data-delay="50" data-tooltip="Logout"><i class="zmdi zmdi-power"></i></a></li>
-                </ul>   
+                </ul>
             </div>
 
-            <div class="row">
-                <!-- Tiles -->
-                <article class="col s12">
-                    <div class="full-width center-align" style="margin: 40px 0;">
-                        <div class="tile">
-                            <div class="tile-icon"><i class="zmdi zmdi-mail-send"></i></div>
-                            <div class="tile-caption">
-                                <span class="center-align">0</span>
-                                <p class="center-align">Huespedes Registrados</p>   
-                            </div>
-                            <a href="#" class="tile-link waves-effect waves-light">View Details &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
-                        </div>
-                        <div class="tile">
-                            <div class="tile-icon"><i class="zmdi zmdi-shopping-cart"></i></div>
-                            <div class="tile-caption">
-                                <span class="center-align">0</span>
-                                <p class="center-align">Piezas Disponibles</p>   
-                            </div>
-                            <a href="#" class="tile-link waves-effect waves-light">View Details &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
-                        </div>
-                        <div class="tile">
-                            <div class="tile-icon"><i class="zmdi zmdi-card"></i></div>
-                            <div class="tile-caption">
-                                <span class="center-align">0</span>
-                                <p class="center-align">Habitaciones Ocupadas</p>   
-                            </div>
-                            <a href="#" class="tile-link waves-effect waves-light">View Details &nbsp; <i class="zmdi zmdi-caret-right-circle"></i></a>
-                        </div>
-                    </div>   
-                </article>
+            <!-- asdasdasd-->
+            <div id="centro">
+                <?php require("php/inicial.php"); ?>
             </div>
 
 
         </section>
-        <!-- Footer -->   
+        <!-- Footer -->
         <footer class="footer-MaterialDark">
             <div class="NavLateralDivider"></div>
             <div class="footer-copyright">
@@ -115,6 +93,7 @@ include 'conexion.php';
     <script src="js/sweetalert.min.js"></script>
 
     <!-- jQuery -->
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-2.2.0.min.js"><\/script>')</script>
 
@@ -126,4 +105,5 @@ include 'conexion.php';
 
     <!-- MaterialDark JS -->
     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
 </html>

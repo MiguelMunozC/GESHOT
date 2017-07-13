@@ -7,17 +7,17 @@ include 'conexion.php';
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">     
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="../js/materialize.min.js" type="text/javascript"></script>
     <script src="../js/form.js" type="text/javascript"></script>
- 
+
    <body class="container">
        <h2 class="center-align">CHECK REGISTRO</h2>
-       
+
         <div align="center">
 
             <div class="row">

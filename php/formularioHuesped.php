@@ -9,31 +9,22 @@ and open the template in the editor.
 session_start();
 include "conexion.php";
 ?>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">     
-    </head>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
-    <script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="../js/materialize.min.js" type="text/javascript"></script>
-    <script src="../js/form.js" type="text/javascript"></script>
-    <body class="container">
+
+
+    <div class="container">
         <h2 class="center-align">Formulario Huesped</h2>
 
 
         <div class="row">
             <article class="col s6 offset-s3">
-                <form action="registrarHuesped.php" method="post"  id="form" onreset="return validacion()">
+                <form action="php/registrarHuesped.php" method="post"  id="form" onreset="return validacion()">
 
                     <div class="row" >
 
                         <div class="input-field col s6">
                             <i class="material-icons prefix">perm_identity</i>
                             <input  value="" name= "nombreHuesped" id="nombreHuesped" type="text" class="validate"  required>
-                            <label class="active"  for="nombreHuesped" >Nombre</label> 
+                            <label class="active"  for="nombreHuesped" >Nombre</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -102,8 +93,8 @@ include "conexion.php";
                             <?php
                            /**
                             include '../metodos/constantes.php';
-                          
-                            
+
+
                             $habilitada = 1;
                             $stmt = mysqli_prepare($con, QUERY_ESTADO_HABITACION);
                             mysqli_stmt_bind_param($stmt, "i", $habilitada);
@@ -119,7 +110,7 @@ include "conexion.php";
                     </div>
 -->
 
-                    <p class="center-align"> 
+                    <p class="center-align">
                         <button class="btn waves-effect waves-light" type="reset" name="agregar" id="agregar" >Agregar
                             <i class="material-icons right">replay</i></button>
                         <button class="btn waves-effect waves-light" type="submit" name="enivar" id="enivar" >Finalizar
@@ -160,7 +151,7 @@ include "conexion.php";
                     // se utiliza para agregar mas huespedes
                     if (validacion2()) {
 
-                        var url = "registrarHuesped.php";
+                        var url = "php/registrarHuesped.php";
 
                         $.ajax({
                             type: "POST",
@@ -184,5 +175,4 @@ include "conexion.php";
 
 
 
-    </body>
-</html>
+    </div>

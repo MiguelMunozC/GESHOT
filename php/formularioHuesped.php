@@ -100,12 +100,20 @@ include "conexion.php";
 
                             <option value="" disabled selected>Selecciónar Habitacion:</option>
                             <?php
-                            $query = $con->query("SELECT * FROM habitaciones WHERE ID_estado_habitacion = 1");
+                           
+                            include '../metodos/constantes.php';
+                          
+                            
+                            $habilitada = 1;
+                            $stmt = mysqli_prepare($con, QUERY_ESTADO_HABITACION);
+                            mysqli_stmt_bind_param($stmt, "i", $habilitada);
+                            mysqli_stmt_bind_result($stmt, $id, $nombre);
+                            mysqli_stmt_execute($stmt);
+                            while (mysqli_stmt_fetch($stmt)) {
 
-                            while ($valores = mysqli_fetch_array($query)) {
-
-                                echo '<option value="' . $valores[ID_habitacion] . '">' . $valores[numero_pieza] . '</option>';
+                                echo '<option value="' . $id . '">' . $nombre. '</option>';
                             }
+                              
                             ?>
                         </select>
                     </div>
@@ -120,7 +128,7 @@ include "conexion.php";
 
                     </p>
                     <p class="center-align">
-                       
+
                         <button class="btn waves-effect waves-light" type="button" id="boton" name="boton" onclick="location.href = '../home.php'">Cancelar
                             <i class="material-icons right">clear</i>
                         </button>

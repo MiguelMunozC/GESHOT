@@ -15,10 +15,32 @@ include 'conexion.php';
     <script src="../js/materialize.min.js" type="text/javascript"></script>
     <script src="../js/form.js" type="text/javascript"></script>
 
-   <body class="container">
-       <h2 class="center-align">CHECK REGISTRO</h2>
+
+    <body class="container">
+        <h1 class="center-align">CHECK REGISTRO</h1>
 
         <div align="center">
+
+            <div class="row">
+                <i class="material-icons prefix"></i><label>HU&Eacute;SPED</label>
+                <select name="huesped" id="huesped" >
+
+                    <option value="" disabled selected> Selecciónar: </option>
+                    <?php
+                    include '../metodos/constantes.php';
+
+
+
+                    $stmt = mysqli_prepare($con, QUERY_HUESPED_HABITACION);
+                    mysqli_stmt_bind_result($stmt, $id_huesped, $nombre_huesped, $apellido_huesped);
+                    mysqli_stmt_execute($stmt);
+                    while (mysqli_stmt_fetch($stmt)) {
+
+                        echo '<option value="' . $id_huesped . '">' . $nombre_huesped . " " . $apellido_huesped . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
 
             <div class="row">
                 <label>CHECK IN</label>

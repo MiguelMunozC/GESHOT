@@ -16,9 +16,31 @@ include 'conexion.php';
     <script src="../js/form.js" type="text/javascript"></script>
  
    <body class="container">
-       <h2 class="center-align">CHECK REGISTRO</h2>
+       <h1 class="center-align">CHECK REGISTRO</h1>
        
         <div align="center">
+
+            <div class="row">
+                <i class="material-icons prefix">hotel</i><label>Habitacion</label>
+                <select name="nHabitacion" id="nHabitacion" >
+
+                    <option value="" disabled selected>Selecciónar Habitacion:</option>
+                    <?php
+                    include '../metodos/constantes.php';
+
+
+                    $habilitada = 1;
+                    $stmt = mysqli_prepare($con, QUERY_HUESPED_HABITACION);
+                    mysqli_stmt_bind_param($stmt, "i", $habilitada);
+                    mysqli_stmt_bind_result($stmt, $id, $nombre);
+                    mysqli_stmt_execute($stmt);
+                    while (mysqli_stmt_fetch($stmt)) {
+
+                        echo '<option value="' . $id_HUESPED . '">' . $nombre . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
 
             <div class="row">
                 <label>CHECK IN</label>

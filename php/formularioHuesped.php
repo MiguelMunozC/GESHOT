@@ -120,7 +120,7 @@ include "conexion.php";
                     </p>
                     <p class="center-align">
 
-                        <button class="btn waves-effect waves-light" type="button" id="boton" name="boton" onclick="location.href = '../home.php'">Cancelar
+                        <button class="btn waves-effect waves-light" type="button" id="boton" name="boton" onclick="location.href = 'home.php'">Cancelar
                             <i class="material-icons right">clear</i>
                         </button>
                     </p>

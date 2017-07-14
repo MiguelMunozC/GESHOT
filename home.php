@@ -58,6 +58,10 @@ include 'conexion.php';
                                 <li><a id="checkout" href="#" class="waves-effect waves-light">Check Out</a></li>
                             </ul>
                         </li>
+                        <li class="NavLateralDivider"></li>
+                        <li>
+                            <a id="Registros" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Registros</a>
+                        </li>
                     </ul>
                 </div>
             </div>

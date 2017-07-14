@@ -45,7 +45,9 @@ include 'conexion.php';
                 <input type="date" class="datepicker" name="Checkout" id="checkout" required>
             </div>
         </div>
-        <button>Guardar</button>
+        <button class="btn waves-effect waves-light" type="submit" name="enviar" id="enviar" >Registar
+            <i class="material-icons right">send</i>
+        </button>
         </p>
     </div>
     <script type="text/javascript">

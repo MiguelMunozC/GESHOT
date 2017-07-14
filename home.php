@@ -30,8 +30,7 @@ include 'conexion.php';
 
         <!--Molina-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="js/form.js" type="text/javascript"></script>
-       
+        <script src="js/form.js" type="text/javascript"></script>   
     </head>
     <body>
         <!-- Nav Lateral -->

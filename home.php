@@ -26,6 +26,8 @@ include 'conexion.php';
         <!-- MaterialDark CSS -->
         <link rel="stylesheet" href="css/style.css">
 
+        <link rel="stylesheet" href="css/estilos.css">
+
         <!--Molina-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="js/form.js" type="text/javascript"></script>
@@ -55,6 +57,10 @@ include 'conexion.php';
                                 <li class="NavLateralDivider"></li>
                                 <li><a id="checkout" href="#" class="waves-effect waves-light">Check Out</a></li>
                             </ul>
+                        </li>
+                        <li class="NavLateralDivider"></li>
+                        <li>
+                            <a id="Registros" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Registros</a>
                         </li>
                     </ul>
                 </div>

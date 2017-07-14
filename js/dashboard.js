@@ -10,4 +10,8 @@ $(document).ready(function(){
     $("#checkout").click(function(){
         $("#centro").load("php/formularioHuesped.php");
     });
+
+    $("#Registros").click(function(){
+        $("#centro").load("php/crud.php");
+    });
 });

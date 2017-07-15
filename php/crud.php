@@ -2,6 +2,9 @@
 
 <?php
 include 'conexion.php';
+$consulta="SELECT * FROM huespedes where ID_habitacion";
+$respuesta=$con ->query($consulta);
+
 ?>
 
 <div class = "container">
@@ -25,6 +28,26 @@ include 'conexion.php';
                 <th>ID habitacion<th>
                 <th><a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a><th>
             </tr> 
+
+            
+			<?php 
+			while ($ver=$respuesta->fetch_array()):
+			?>
+
+			<tr>
+				<td><?php echo $ver["nombre_huesped"]; ?></td>
+				<td><?php echo $ver["apellido_huesped"]; ?></td>
+				<td><?php echo $ver["DNI"]; ?></td>
+				<td><?php echo $ver["nacionalidad"]; ?></td>
+				<td><?php echo $ver["domicilio"]; ?></td>
+				<td><?php echo $ver["ocupacion"]; ?></td>
+				<td><?php echo $ver["fecha_nacimiento"]; ?></td>
+				<td><?php echo $ver["email_huesped"]; ?></td>
+				<td><?php echo $ver["ID_habitacion"]; ?></td>
+			</tr>
+            
+            <?php endwhile;?>
+
  		</table>
  	</div>
 </div>

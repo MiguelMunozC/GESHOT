@@ -1,34 +1,53 @@
 
+
 <?php
 include 'conexion.php';
+$consulta="SELECT * FROM huespedes where ID_habitacion";
+$respuesta=$con ->query($consulta);
+
 ?>
-
-
 
 <div class = "container">
 
- <div class="row">
-            <article class="col s6 offset-s3">
+ 	<div class="row">
+ 		<table class= "striped" style="width:100%"	>  
 
- <table class="bordered">  
+  			<div>
+   				<h5 class="left-align">Modificador</h5>
+  			</div> 
 
-  <div>
-    <h5 class="left-align">Modificador</h5>
-  </div>          
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>DNI</th>
-                    <th>Nacionalidad</th>
-                    <th>domicilio</th>
-                    <th>Ocupacion</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>E-Mail</th>
-                    <th>ID habitacion<th>
-                    <th> <a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a> <th>
-                </tr> 
- </table>
--- configuro el espacio de la pagina  
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+                <th>Nacionalidad</th>
+                <th>domicilio</th>
+                <th>Ocupacion</th>
+                <th>Fecha de Nacimiento</th>
+                <th>E-Mail</th>
+                <th>ID habitacion<th>
+                <th><a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a><th>
+            </tr> 
 
- </div>
+            
+			<?php 
+			while ($ver=$respuesta->fetch_array()):
+			?>
+
+			<tr>
+				<td><?php echo $ver["nombre_huesped"]; ?></td>
+				<td><?php echo $ver["apellido_huesped"]; ?></td>
+				<td><?php echo $ver["DNI"]; ?></td>
+				<td><?php echo $ver["nacionalidad"]; ?></td>
+				<td><?php echo $ver["domicilio"]; ?></td>
+				<td><?php echo $ver["ocupacion"]; ?></td>
+				<td><?php echo $ver["fecha_nacimiento"]; ?></td>
+				<td><?php echo $ver["email_huesped"]; ?></td>
+				<td><?php echo $ver["ID_habitacion"]; ?></td>
+			</tr>
+            
+            <?php endwhile;?>
+
+ 		</table>
+ 	</div>
 </div>

@@ -30,8 +30,7 @@ include 'conexion.php';
 
         <!--Molina-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="js/form.js" type="text/javascript"></script>
-
+        <script src="js/form.js" type="text/javascript"></script>   
     </head>
     <body>
         <!-- Nav Lateral -->
@@ -51,12 +50,8 @@ include 'conexion.php';
                         </li>
                         <li class="NavLateralDivider"></li>
                         <li>
-                            <a href="#" class="NavLateral-DropDown  waves-effect waves-light"><i class="zmdi zmdi-language-css3 zmdi-hc-fw"></i> <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Registro Habitación</a>
-                            <ul class="full-width">
-                                <li><a id="checkin" href="#" class="waves-effect waves-light">Check In</a></li>
-                                <li class="NavLateralDivider"></li>
-                                <li><a id="checkout" href="#" class="waves-effect waves-light">Check Out</a></li>
-                            </ul>
+
+                            <a id="checkin" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Check </a>
                         </li>
                         <li class="NavLateralDivider"></li>
                         <li>

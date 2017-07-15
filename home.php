@@ -62,6 +62,9 @@ include 'conexion.php';
                         <li>
                             <a id="Registros" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Registros</a>
                         </li>
+                        <li>
+                            <a id="AsignacionHabitacion" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Asignación Habitación</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -90,7 +93,7 @@ include 'conexion.php';
             <div class="NavLateralDivider"></div>
             <div class="footer-copyright">
                 <div class="container center-align">
-                    © 2017 twk corporations
+                    © 2017 GESHOT corporations
                 </div>
             </div>
         </footer>

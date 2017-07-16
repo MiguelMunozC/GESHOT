@@ -10,6 +10,7 @@ define("QUERY_HABITACION", "SELECT ID_habitacion, numero_pieza FROM habitaciones
 
 define("QUERY_HUESPEDE", "SELECT ID_huesped, nombre_huesped, apellido_huesped FROM huespedes WHERE ID_habitacion is null ");
 
+define("QUERY_INSERT_REGISTRO", "INSERT INTO registro (id_huesped,apellido_huesped,checkin,checkout,costo_total,id_habitacion) VALUES (?,?,?,?,?,?)");
 
 
 ?>

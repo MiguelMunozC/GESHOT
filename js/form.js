@@ -84,3 +84,41 @@ function validacion2() {
         }
     }
 }
+function validacion3() {
+    id_huesped = document.getElementById("id_Huesped").value;
+    //apellido_huesped = document.getElementById("apellido_huesped").value;
+    checkin = document.getElementById("checkin").value;
+    checkout = document.getElementById("checkout").value;
+    costo_total = document.getElementById("costo_total").value;
+
+    if (id_huesped == null || id_huesped.length == 0 || /^\s+$/.test(id_huesped)) {
+        alert("id huesped esta en blanco");
+        return false;
+    } //else {
+      //  if (apellido_huesped == null || apellido_huesped.length == 0 || /^\s+$/.test(apellido_huesped)) {
+        //    alert(" apellido esta en blanco");
+          //  return false;
+      //  }
+        else {
+            if (checkin == null || checkin.length == 0 || /^\s+$/.test(checkin)) {
+                alert("fecha ingreso esta en blanco");
+                return false;
+            } else {
+                if (checkout == null || checkout.length == 0 || /^\s+$/.test(checkout)) {
+                    alert("fecha salida esta en blanco");
+                    return false;
+                } else {
+                    if (costo_total == null || costo_total.length == 0 || /^\s+$/.test(costo_total)) {
+                        alert("costo esta en blanco");
+                        return false;
+
+                    } else {
+
+                        return true;
+
+                    }
+                }
+            }
+        }
+    }
+

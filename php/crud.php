@@ -26,7 +26,8 @@ $respuesta=$con ->query($consulta);
                 <th>Fecha de Nacimiento</th>
                 <th>E-Mail</th>
                 <th>ID habitacion<th>
-                <th><a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a><th>
+                <th><th>
+               
             </tr> 
 
             
@@ -44,6 +45,8 @@ $respuesta=$con ->query($consulta);
 				<td><?php echo $ver["fecha_nacimiento"]; ?></td>
 				<td><?php echo $ver["email_huesped"]; ?></td>
 				<td><?php echo $ver["ID_habitacion"]; ?></td>
+				<td><a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a></td>
+				<td><a class="btn-floating btn-large waves-effect waves-light red pulse"><i class="material-icons">delete</i></a></td>
 			</tr>
             
             <?php endwhile;?>

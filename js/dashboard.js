@@ -10,11 +10,6 @@ $(document).ready(function(){
         $("#centro").load("php/habitacionRegistro.php");
     });
 
-    //Carga la vista ??? al hacer click en #???
-    $("#checkout").click(function(){
-        $("#centro").load("php/formularioHuesped.php");
-    });
-
     //Carga la vista crud al hacer click en #Registros
     $("#Registros").click(function(){
         $("#centro").load("php/crud.php");

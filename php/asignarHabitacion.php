@@ -4,7 +4,7 @@ include './conexion.php';
 ?>
 
 
-<body class="container">
+<div class="container">
   <span class="blue-text text-darken-2"><h2 class="center-align">Asignación Habitación</h2></span>
   <form action= "" method="post"  id="victor">
   </form>
@@ -99,4 +99,4 @@ include './conexion.php';
   });
   </script>
 
-</body>
+</div>

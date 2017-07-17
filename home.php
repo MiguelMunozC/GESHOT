@@ -41,7 +41,9 @@ include "/php/conexion.php";
         GesHot <i class="zmdi zmdi-close NavLateral-title-btn ShowHideMenu"></i>
       </header>
       <figure class="full-width NavLateral-logo">
-        <img src="assets/img/hotel.jpg" alt="material-logo" class="responsive-img center-box">
+          <a href="http://localhost/GESHOT/home.php">
+            <img src="assets/img/hotel.jpg" alt="material-logo" class="responsive-img center-box">
+        </a>
       </figure>
       <div class="NavLateral-Nav">
         <ul class="full-width">

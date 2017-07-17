@@ -32,8 +32,7 @@ include 'conexion.php';
                 <div class="tile-icon"><i class="material-icons">check_circle</i></div>
                 <div class="tile-caption">
                     <?php
-                        include './metodos/constantes.php';
-
+                        
                         $stmt = mysqli_prepare($con, QUERY_CANTIDAD_HABITACIONES_DISP);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $cant);
@@ -52,8 +51,7 @@ include 'conexion.php';
                 <div class="tile-icon"><i class="material-icons">do_not_disturb_on</i></div>
                 <div class="tile-caption">
                     <?php
-                        include './metodos/constantes.php';
-
+                        
                         $stmt = mysqli_prepare($con, QUERY_CANTIDAD_HABITACIONES_OCUP);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $cant);

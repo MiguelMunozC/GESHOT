@@ -26,11 +26,13 @@ include "/php/conexion.php";
   <!-- MaterialDark CSS -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!--Molina-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="js/form.js" type="text/javascript"></script>
+  
   <link rel="stylesheet" href="css/estilos.css">
 
-  <!--Molina-->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="js/form.js" type="text/javascript"></script>
+
 </head>
 <body>
   <!-- Nav Lateral -->
@@ -52,12 +54,12 @@ include "/php/conexion.php";
           </li>
           <li class="NavLateralDivider"></li>
           <li>
-            <a id="AsignacionHabitacion" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Asignar Habitación</a>
+            <a id="AsignacionHabitacion" href="#" class="waves-effect waves-light"><i class="material-icons zmdi-hc-fw">hotel</i> Asignar Habitación</a>
           </li>
           <li class="NavLateralDivider"></li>
           <li>
 
-            <a id="checkin" href="#" class="waves-effect waves-light"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i> Check </a>
+            <a id="checkin" href="#" class="waves-effect waves-light"><i class="material-icons zmdi-hc-fw">location_on</i> Check </a>
           </li>
           <li class="NavLateralDivider"></li>
           <li>
